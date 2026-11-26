@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/e98ca68c2a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>C Programming Assignments</h1>
+            <h4>Bhumi Pundhir - BCA First Semester - Dezyne &Eacute;cole College</h4>
+        </div>
+        <div class="main">
+            <div class="left-pane">
+                <ul class="menu">
+                    <script>
+                        // // for(i = 1 ; i <= 10 ; i++){
+                        //      document.write("<li onclick='loadFile('programs/program1.c')'>Program " + i +"</li>")        
+                        //  }
+                    </script>
+                    <li onclick="loadFile(filenames[0], quesNames[0])">Program1</li>
+                    <li onclick="loadFile(filenames[1], quesNames[1])">Program2</li>
+                    <li onclick="loadFile(filenames[2], quesNames[2])">Program3</li>
+                    <li onclick="loadFile(filenames[3], quesNames[3])">Program4</li>
+                    <li onclick="loadFile(filenames[4], quesNames[4])">Program5</li>
+                    <li onclick="loadFile(filenames[5], quesNames[5])">Program6</li>
+                    <li onclick="loadFile(filenames[6], quesNames[6])">Program7</li>
+                    <li onclick="loadFile(filenames[7], quesNames[7])">Program8</li>
+                    <li onclick="loadFile(filenames[8], quesNames[8])">Program9</li>
+                    <li onclick="loadFile(filenames[9], quesNames[9])">Program10</li>
+                    <li onclick="loadFile(filenames[10], quesNames[10])">Program11</li>
+                    <li onclick="loadFile(filenames[11], quesNames[11])">Program12</li>
+                    <li onclick="loadFile(filenames[12], quesNames[12])">Program13</li>
+                    <li onclick="loadFile(filenames[13], quesNames[13])">Program14</li>
+                    <li onclick="loadFile(filenames[14], quesNames[14])">Program15</li>
+                    <li onclick="loadFile(filenames[15], quesNames[15])">Program16</li>
+                    <li onclick="loadFile(filenames[16], quesNames[16])">Program17</li>
+                    <li onclick="loadFile(filenames[17], quesNames[17])">Program18</li>
+                    <li onclick="loadFile(filenames[18], quesNames[18])">Program19</li>
+                    <li onclick="loadFile(filenames[19], quesNames[19])">Program20</li>
+
+                </ul>
+            </div>
+            <div class="right-pane">
+                <div class="question" id="question"></div>
+                <div class="output">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-content">&copy; 2024. Design & Developed By - Bhumi Pundhir</div>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    
+    let filenames = ["programs/program1.c", "programs/program2.c", "programs/program3.c", "programs/program4.c", "programs/program5.c", "programs/program6.c", "programs/program7.c", "programs/program8.c", "programs/program9.c", "programs/program10.c","programs/program11.c","programs/program12.c","programs/program13.c","programs/program14.c","programs/program15.c","programs/program16.c","programs/program17.c","programs/program18.c","programs/program19.c","programs/program20.c"];
+
+    let quesNames = ["Write a program to print student name and three subject marks from user and print it's name, total of marks, percentage and division using else if ladder", 
+    
+    "Write a program to input a number from user and check number is one, two or three digit using else if ladder",
+    
+    "Write a program to input television price from user and calculate net television amount: If television is Colored & 24” discount = 10% or 32” discount = 15%. If television is B & W & 21” discount = 12%.",
+    
+    "Write a program to input a number from user and print number is palindrome or not using while loop ",
+    
+    "Write a program to input a number from user and check number is prime of not using while loop.",
+    
+    "Write a program to input a limit from user and print all Armstrong numbers between limit. ",
+    
+    "Write a program to print Diamond Pattern",
+    
+    "Write a program to input a number from user and print its binary number.",
+    
+    "Write a program to input 10 array elements from user and find first and second maximum numbers. ",
+    
+    "Write a program to input 10 elements from user and search an element that is given by user and print it.",
+    
+    "Write a program to input 10 elements from user and search an element that is given by user and print it.",
+    
+    "Write a program to input 10 elements from user and sort it in ascending order and print it using Selection Sort & bubble sort. (Choose sorting option from user)",
+    
+    "Write a program to input 10 unique elements from user and print all prime elements available in array. Validate, if any repeated element from user it’s not accepted by array.",
+    
+    "Write a program to input a number from user and print it into the following series. (Input – 124, Output: 1, 12, 124, 2, 24, 4)",
+    
+    "Write a program to declare two 3X3 matrix and input dimensions by user and then check it, if dimensions are correct then multiply it else print error message. ",
+    
+    "Write a program to input 3X3 matrix from user and print sum of all rows elements. ",
+    
+    "Write a program to input 3X3 matrix from user and print sum of all column element. ",
+    
+    "Write a program to  input a String from user and print it in the following pattern. (Example: Input Data – DOG, Output – D, DO, DOG, O, OG, G).",
+    
+    "Write a program to input a limit from user and print the following series. ( 1, 8 , 72, 46, 521… n).",
+    
+    "Write a program to input a limit from user and print Fibonacci Series."];
+
+    function loadFile(filename, question) {
+    fetch(filename)
+    .then(response => {
+        if (!response.ok)
+            throw new Error("Cannot load file");
+        return response.text();
+    })
+    .then(data => {
+        document.getElementById("question").textContent = question;
+        document.getElementById("output").textContent = data;
+    })
+    .catch(error => {
+        document.getElementById("output").textContent =
+            error.message;
+    });
+
+}
+
+</script>
